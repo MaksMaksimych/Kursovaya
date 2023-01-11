@@ -81,15 +81,7 @@ class MainDialog(QDialog, Ui_Dialog):
         super(MainDialog, self).__init__(parent)
         self.setupUi(self)
 
-        # self.loginDatabase = LoginDatabase('login.db')
-        # if self.loginDatabase.is_table('USERS'):
-        #     pass
-        # else:
-        #     self.loginDatabase.conn.execute("CREATE TABLE USERS(USERNAME TEXT NOT NULL, EMAIL TEXT, PASSWORD TEXT)")
-        #     self.loginDatabase.conn.execute("INSERT INTO USERS VALUES(?, ?, ?)",
-        #                                    ('admin', 'admin@gmail.com', 'admin')
-        #     )
-        #     self.loginDatabase.conn.commit()
+       
 
         self.login_btn.clicked.connect(self.loginCheck)
         self.signup_btn.clicked.connect(self.signUpCheck)
@@ -109,21 +101,7 @@ class MainDialog(QDialog, Ui_Dialog):
 
     @QtCore.pyqtSlot()
     def loginCheck(self):
-        # username = self.uname_lineEdit.text()
-        # password = self.pass_lineEdit.text()
-        # if (not username) or (not password):
-        #     msg = QMessageBox.information(self, 'Внимание!', 'Вы не заполнили все поля.')
-        #     return
-        #
-        #
-        # result = self.loginDatabase.conn.execute("SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?",
-        #                                          (trippledesencrypt(username), trippledesencrypt(password)))
-        # if len(result.fetchall()):
-        #     self.close()
-        #     run()
-        #     self.loginDatabase.conn.close()
-        # else:
-        #     self.showMessageBox('Внимание!', 'Неправильное имя пользователя или пароль.')
+        
 
         username = trippledesencrypt(self.uname_lineEdit.text())
         password = trippledesencrypt(self.pass_lineEdit.text())
@@ -131,8 +109,6 @@ class MainDialog(QDialog, Ui_Dialog):
             msg = QMessageBox.information(self, 'Внимание!', 'Вы не заполнили все поля.')
             return
 
-        # result = self.loginDatabase.conn.execute("SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?",
-        #                                          (trippledesencrypt(username), trippledesencrypt(password)))
 
         file = open('login.txt', 'r', encoding='utf-8')
         text = file.readlines()
