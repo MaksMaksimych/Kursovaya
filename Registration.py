@@ -66,22 +66,7 @@ class Dialog(QDialog, Ui_signUp):
 
     @pyqtSlot()
     def insertData(self):
-        # username = trippledesencrypt(self.uname_lineEdit.text())
-        # email = trippledesencrypt(self.email_lineEdit.text())
-        # password = trippledesencrypt(self.password_lineEdit.text())
-        #
-        # if (not username) or (not email) or (not password):
-        #     msg = QMessageBox.information(self, 'Внимание!', 'Вы не заполнили все поля.')
-        #     return
-        #
-        # result = self.parent.loginDatabase.conn.execute("SELECT * FROM USERS WHERE USERNAME = ?", (username,))
-        # if result.fetchall():
-        #     msg = QMessageBox.information(self, 'Внимание!', 'Пользоватеть с таким именем уже зарегистрирован.')
-        # else:
-        #     self.parent.loginDatabase.conn.execute("INSERT INTO USERS VALUES(?, ?, ?)",
-        #                                            (username, email, password))
-        #     self.parent.loginDatabase.conn.commit()
-        #     self.close()
+        
 
         username = trippledesencrypt(self.uname_lineEdit.text())
         email = trippledesencrypt(self.email_lineEdit.text())
@@ -103,10 +88,7 @@ class Dialog(QDialog, Ui_signUp):
                 msg = QMessageBox.information(self, 'Внимание!', 'Пользоватеть с таким именем уже зарегистрирован.')
                 flag = False
                 break
-            # elif email == row[1]:
-            #     print('Пользователь с данной почтой уже существует')
-            #     flag = False
-            #     break
+            
         if flag:
             # if log != row[0] and email != row[1]:
             file = open('login.txt', 'a', encoding='utf-8')
