@@ -139,17 +139,17 @@ ROTATES = [
 
 
 def slice_mess(string):
-	"""converts mess from ascii to hex string"""
+	
 	return [i.zfill(16) for i in wrap(''.join([hex(ord(i))[2:] for i in string]), 16)]
 
 
 def to_bin(s):
-	"""converts str to 4-bit slices and fill it zeros if needed"""
+	
 	return ''.join([bin(int(i, 16))[2:].zfill(4) for i in s])
 
 
 def permute(block, box):
-	"""permutes sequence according to permutation tables"""
+	
 	return ''.join([block[i] for i in box])
 
 
@@ -158,7 +158,7 @@ def XOR(arg_1, arg_2):
 
 
 def rotate_left(block, i):
-	"""makes C-rotate, coz Py-rotate little not what needed"""
+	
 	return bin(int(block, 2) << i & 0x0fffffff | int(block, 2) >> 28 - i)[2:].zfill(28)
 
 
